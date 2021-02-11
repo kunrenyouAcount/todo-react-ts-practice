@@ -1,6 +1,6 @@
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  entry: './src/index.tsx',
   output: {
     filename: 'main.js',
   },
@@ -13,6 +13,14 @@ module.exports = {
     publicPath: '/',
   },
   resolve: {
-    extensions: ['.js'],
+    extensions: ['.ts', '.tsx', '.js'],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: [{ loader: 'ts-loader' }],
+      },
+    ],
   },
 };
